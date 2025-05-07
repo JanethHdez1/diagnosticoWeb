@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="api">CLIC AQUÍ</button>
+    
+    <script>
+        document.getElementById('api').addEventListener('click', async () => {
+            try {
+                const response = await fetch('http://localhost:8080/api');
+                const data = await response.text();
+                console.log('Respuesta del backend:', data);
+                alert('Mensaje del backend: ' + data );
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al conectar con el backend');
+            }
+        });
+    </script>
+</body>
+</html>
